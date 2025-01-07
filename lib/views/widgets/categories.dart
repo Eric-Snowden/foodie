@@ -1,40 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/data/constants.dart';
-import 'package:foodie/domain/domain_controller.dart';
+import 'package:foodie/views/widgets/category.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({
-    super.key,
-    required this.img,
-    required this.name,
-  });
-  final String img;
-  final String name;
+  const Categories({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.h,
-      width: 131.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(13.r),
-        color: ColorUtils.getColorFromHex('FCE6D9'),
-      ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          4.ws,
-          Image.asset(
-            'assets/images/$img.png',
-            width: 30.w,
+          12.ws,
+          const Category(
+            img: 'eat',
+            name: ' Vegetarian',
           ),
-          8.ws,
-          Text(
-            name,
-            style: TextStyle(
-              fontSize: 13.sp,
-            ),
+          12.ws,
+          const Category(
+            img: 'hamburger',
+            name: ' Fast Food',
+          ),
+          12.ws,
+          const Category(
+            img: 'ice-cream-cone',
+            name: 'Ice-cream',
           ),
         ],
       ),

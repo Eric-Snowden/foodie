@@ -5,6 +5,7 @@ import 'package:foodie/domain/domain_controller.dart';
 import 'package:foodie/views/widgets/appbar.actions.dart';
 import 'package:foodie/views/widgets/categories.dart';
 import 'package:foodie/views/widgets/corusels.dart';
+import 'package:foodie/views/widgets/popular.items.dart';
 import 'package:foodie/views/widgets/search.and.filter.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,36 +43,40 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          20.hs,
-          const SearchAndFilter(),
-          20.hs,
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                12.ws,
-                const Categories(
-                  img: 'eat',
-                  name: ' Vegetarian',
-                ),
-                12.ws,
-                const Categories(
-                  img: 'hamburger',
-                  name: ' Fast Food',
-                ),
-                12.ws,
-                const Categories(
-                  img: 'ice-cream-cone',
-                  name: 'Ice-cream',
-                ),
-              ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            20.hs,
+            const SearchAndFilter(),
+            20.hs,
+            const Categories(),
+            20.hs,
+            const Corousels(),
+            20.hs,
+            Padding(
+              padding: EdgeInsets.only(left: 20.w),
+              child: Row(
+                children: [
+                  Text(
+                    'Popular Items',
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          20.hs,
-          const Corousels(),
-        ],
+            Padding(
+              padding: EdgeInsets.only(
+                left: 10.w,
+              ),
+              child: const PopularItems(),
+            ),
+            20.hs,
+          ],
+        ),
       ),
     );
   }

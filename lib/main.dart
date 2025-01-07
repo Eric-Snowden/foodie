@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/locator.dart';
 import 'package:foodie/views/screens/splash.screen.dart';
@@ -19,7 +20,11 @@ void main() async {
   } catch (e) {
     print('Error setting up dependency injection: $e');
   }
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
